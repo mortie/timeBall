@@ -20,8 +20,11 @@ var input = {
 onkeydown = function(e) {
     e=e||event //to deal with IE
     
+	if (!input.keyPressed[e.keyCode]) {
+		input.onKeyDown[e.keyCode] = true;
+	}
+	
 	input.keyPressed[e.keyCode] = true;
-	input.onKeyDown[e.keyCode] = true;
 	
     e.preventDefault();
 }

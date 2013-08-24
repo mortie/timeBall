@@ -83,7 +83,7 @@ var physics = {
 		}
 		
 		//shifting camera
-		state.xmod = (-state.player.pos.x)+(state.canvas.width/2);
-		state.ymod = (-state.player.pos.y)+(state.canvas.height/2);
+		state.xmod = (-state.player.pos.x)+(draw.canvas.width/2);
+		state.ymod = (-state.player.pos.y)+(draw.canvas.height/2);
 	}
 }

@@ -1,10 +1,11 @@
-var main = function() {
+var main = function() {	
 	draw.main();
-	physics.main();
+	rewind.main();
+	if (rewind.mainShouldPhysics) {
+		physics.main();
+	}
+	GUI.main();
 	
 	input.main(); //should always be last
 }
 
-function saveState() {
-	oldState.unshift (jQuery.extend(true, {}, state));
-}

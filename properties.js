@@ -1,8 +1,7 @@
 var properties = {
 	'gameSpeed': 60,
 	
-	'saveFrequency': 30,
-	'restoreIndex': 20,
+	'rewindMax': 600,
 	
 	'canvas': "gameCanvas",
 	
@@ -12,6 +11,7 @@ var properties = {
 		'down': 83,
 		'right': 68,
 		'rewind': 32,
+		'pause': 27,
 	},
 	
 	'player': {

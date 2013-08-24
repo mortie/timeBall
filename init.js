@@ -1,11 +1,10 @@
 function init() {
-	state.canvas = document.getElementById(properties.canvas);
-	state.ctx = state.canvas.getContext("2d");
+	draw.canvas = document.getElementById(properties.canvas);
+	draw.ctx = draw.canvas.getContext("2d");
 	
-	loop.start('main', properties.gameSpeed, loop.gameLoop);
-	loop.start('saveState', properties.saveFrequency, loop.saveLoop);
+	gameLoop = setInterval(main, 1000/properties.gameSpeed);
 	
-	spawn.worldRect(-200, -100, 400, 200, 0)
+	spawn.worldRect(-300, -150, 1000, 300, 0)
 }
 
 window.onLoad = init();

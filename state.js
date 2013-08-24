@@ -1,8 +1,6 @@
 var state = {
 	'gameLoop': null,
 	'saveLoop': null,
-	'ctx': null,
-	'canvas': null,
 	
 	'player': {
 		'pos': {
@@ -24,3 +22,5 @@ var state = {
 }
 
 var oldState = [];
+
+var gameLoop = null;
