@@ -6,10 +6,33 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		5B6D5E8517C8C85B001517E2 /* draw.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = draw.js; sourceTree = "<group>"; };
+		5B6D5E8617C8C8C3001517E2 /* physics.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = physics.js; sourceTree = "<group>"; };
+		5BAE29D717C8BAE100470A73 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		5BAE29D817C8BB1B00470A73 /* init.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = init.js; sourceTree = "<group>"; };
+		5BAE29D917C8BC1200470A73 /* state.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = state.js; sourceTree = "<group>"; };
+		5BAE29DC17C8BD0700470A73 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		5BAE29DD17C8BD2B00470A73 /* jquery.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
+		5BAE29DF17C8BEE900470A73 /* loop.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = loop.js; sourceTree = "<group>"; };
+		5BAE29E017C8BF1100470A73 /* properties.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = properties.js; sourceTree = "<group>"; };
+		5BAE29E117C8C07200470A73 /* input.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = input.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		5BAE29D017C8BAD200470A73 = {
 			isa = PBXGroup;
 			children = (
+				5BAE29D717C8BAE100470A73 /* index.html */,
+				5BAE29D817C8BB1B00470A73 /* init.js */,
+				5BAE29DC17C8BD0700470A73 /* main.js */,
+				5B6D5E8517C8C85B001517E2 /* draw.js */,
+				5B6D5E8617C8C8C3001517E2 /* physics.js */,
+				5BAE29D917C8BC1200470A73 /* state.js */,
+				5BAE29E117C8C07200470A73 /* input.js */,
+				5BAE29DF17C8BEE900470A73 /* loop.js */,
+				5BAE29E017C8BF1100470A73 /* properties.js */,
+				5BAE29DD17C8BD2B00470A73 /* jquery.js */,
 			);
 			sourceTree = "<group>";
 		};
