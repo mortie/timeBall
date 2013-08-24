@@ -19,7 +19,10 @@ var rewind = {
 		if (input.onKeyUp[properties.key.rewind] ||
 			rewind.currIndex > properties.rewindMax ||
 			rewind.currIndex >= oldState.length-1) { // on space release OR when rewinded too far
+			if (!this.mainShouldPhysics) {
 				this.mainShouldPhysics = true;
+				oldState.splice(0, this.currIndex+1);
+			}
 		}
 	},
 	

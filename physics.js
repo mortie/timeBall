@@ -1,4 +1,4 @@
-var physics = {
+var physics = {	
 	'main': function() {
 		this.player();
 		this.misc();
@@ -43,10 +43,34 @@ var physics = {
 		player.pos.y += state.player.vel.y;
 	},
 	
-	'getOnGround': function() {
+	'getIfWallLeft': function() {
+		var pRadius = properties.player.radius;
 		var playerPoint = {
-			'x': state.player.pos.x + (properties.player.width/2),
-			'y': state.player.pos.y + properties.player.height,
+			'x': state.player.pos.x - pRadius,
+			'y': state.player.pos.y + pRadius,
+		}
+		for (var cIndex in state.world) {
+			if (this.pointToRectCollision(playerPoint, state.world[cIndex].point)) {
+				state.player.collidesWith = state.world[cIndex];
+				return false;
+			}
+		}
+		return true;
+	},
+	
+	'getIfWallRight': function() {
+		var pRadius = properties.player.radius;
+		var playerPoint = {
+			'x': state.player.pos.x + pRadius,
+			'y': state.player.pos.y + pRadius,
+		}
+	},
+	
+	'getOnGround': function() {
+		var pRadius = properties.player.radius;
+		var playerPoint = {
+			'x': state.player.pos.x,
+			'y': state.player.pos.y,
 		}
 		for (var cIndex in state.world) {
 			if (this.pointToRectCollision(playerPoint, state.world[cIndex].point)) {

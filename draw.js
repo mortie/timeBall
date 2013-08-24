@@ -14,12 +14,12 @@ var draw = {
 		this.ctx.beginPath();
 		this.ctx.arc(state.player.pos.x + state.xmod,
 					  state.player.pos.y + state.ymod,
-					  10, 0, 2 * Math.PI, false);
+					  properties.player.radius, 0, 2 * Math.PI, false);
 		
-		this.ctx.fillStyle = 'green';
+		this.ctx.fillStyle = "green";
 		this.ctx.fill();
 		this.ctx.lineWidth = 5;
-		this.ctx.strokeStyle = '#003300';
+		this.ctx.strokeStyle = "#003300";
 		this.ctx.stroke();
 		this.ctx.closePath();
 	},
@@ -37,7 +37,7 @@ var draw = {
 						this.ctx.lineTo(cObj.point[j].x + state.xmod,
 										 cObj.point[j].y + state.ymod);
 					}
-					this.ctx.fillStyle = 'black';
+					this.ctx.fillStyle = "#AAAAAA";
 					this.ctx.fill();
 					this.ctx.closePath();
 					break;

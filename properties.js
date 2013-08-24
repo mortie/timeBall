@@ -18,8 +18,7 @@ var properties = {
 		'slowdown': 0.9,
 		'acceleration': 1,
 		'jumpForce': 20,
-		'height': 3,
-		'width': 3,
+		'radius': 10,
 	},
 	
 	'gravity': 1,
