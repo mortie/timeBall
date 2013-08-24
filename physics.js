@@ -33,7 +33,7 @@ var physics = {
 		{
 			if (player.isOnGround) {
 				player.vel.y = 0;
-				player.pos.y = state.player.collidesWith.point[0].y;
+				player.pos.y = state.player.collidesWith.point[2].y;
 			} else {
 				player.vel.y += properties.gravity;
 			}
@@ -51,9 +51,10 @@ var physics = {
 		for (var cIndex in state.world) {
 			if (this.pointToRectCollision(playerPoint, state.world[cIndex].point)) {
 				state.player.collidesWith = state.world[cIndex];
-				return true;
+				return false;
 			}
 		}
+		return true;
 	},
 	
 	'pointToRectCollision': function(point, arrPoint) {
