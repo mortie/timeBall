@@ -10,8 +10,8 @@ var input = {
 	'mouseY': null,
 	
 	'main': function() {
-		input.onKeyDown = false;
-		input.onKeyUp = false;
+		input.onKeyDown = [];
+		input.onKeyUp = [];
 		input.onMouseDown = false;
 		input.onMouseUp = false;
 	},

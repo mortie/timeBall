@@ -1,8 +1,8 @@
 var properties = {
 	'gameSpeed': 60,
 	
-	'saveFrequency': 1,
-	'restoreIndex': 10,
+	'saveFrequency': 2,
+	'restoreIndex': 20,
 	
 	'canvas': "gameCanvas",
 	
@@ -17,5 +17,10 @@ var properties = {
 	'player': {
 		'slowdown': 0.9,
 		'acceleration': 1,
+		'jumpForce': 20,
+		'height': 3,
+		'width': 3,
 	},
+	
+	'gravity': 1,
 }
