@@ -19,6 +19,7 @@ var statState = {
 	'world': [],
 	'worldLethal': [],
 	'backgroundMusic': null,
+	'musicPlaying': true,
 	'shouldPhysics': true,
 	'shouldGame': true,
 	'paused': false,

@@ -35,7 +35,7 @@ var worldgen = {
 			var lethalHeight = properties.worldgen.lethalHeight;
 			
 			spawn.worldRect(cX, cY, cWidth, cHeight + lethalHeight);
-			spawn.lethalRect(cX, cY+cHeight+(lethalHeight/2), cWidth, lethalHeight);
+			spawn.lethalRect(cX, cY+cHeight+(lethalHeight/2.6), cWidth, lethalHeight);
 		}
 	},
 	

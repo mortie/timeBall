@@ -26,7 +26,7 @@ var draw = {
 	},
 	
 	'world': function() {
-		for (var i=statState.world.length-1; i>=0; --i) {
+		for (var i=statState.world.length-1; i>statState.world.length-properties.amountToDraw && i>=0; --i) {
 			var cObj = statState.world[i]
 			this.ctx.beginPath();
 			this.ctx.moveTo(cObj.point[0].x + state.xmod,
@@ -48,7 +48,7 @@ var draw = {
 	},
 
 	'worldLethal': function() {
-		for (var i=statState.worldLethal.length-1; i>=0; --i) {
+		for (var i=statState.worldLethal.length-1; i>statState.world.length-properties.amountToDraw && i>=0; --i) {
 			var cObj = statState.worldLethal[i]
 			this.ctx.beginPath();
 			this.ctx.moveTo(cObj.point[0].x + state.xmod,
@@ -67,5 +67,5 @@ var draw = {
 			this.ctx.fill();
 			this.ctx.closePath();
 		}
-	}
+	},
 }

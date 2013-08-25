@@ -13,11 +13,12 @@ var properties = {
 		'rewind': 32,
 		'pause': 27,
 		'restart': 27,
+		'musicToggle': 77,
 	},
 	
 	'player': {
 		'slowdown': 0.9,
-		'acceleration': 0.3,
+		'acceleration': 0.4,
 		'jumpForce': 20,
 		'radius': 10,
 		'maxSpeed': 50,
@@ -36,8 +37,10 @@ var properties = {
 		'lethalWidthMin': 5,
 		'lethalHeight': 200,
 		
-		'lethalChance': 80,
+		'lethalChance': 70,
 		
 		'worldLength': 500,
 	},
+	
+	'amountToDraw': 100,
 }
