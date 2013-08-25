@@ -35,9 +35,9 @@ var properties = {
 		
 		'lethalWidthMax': 15,
 		'lethalWidthMin': 5,
-		'lethalHeight': 200,
+		'lethalHeight': 400,
 		
-		'lethalChance': 70,
+		'lethalChance': 30,
 		
 		'worldLength': 500,
 	},

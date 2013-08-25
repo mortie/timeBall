@@ -12,7 +12,7 @@ var physics = {
 		
 		//controls
 		{
-			if (!input.keyPressed[propKey.down] && state.player.isOnGround) {
+			if (input.keyPressed[propKey.up] && state.player.isOnGround) {
 				state.player.vel.y -= properties.player.jumpForce;
 				state.player.pos.y -= 1;
 				state.player.isOnGround = false;
@@ -100,6 +100,6 @@ var physics = {
 		
 		//camera
 		state.xmod = (-state.player.pos.x)+(draw.canvas.width/2);
-		state.ymod = (-state.player.pos.y)+(draw.canvas.height/2);
+		state.ymod = (-state.player.pos.y)+(draw.canvas.height/1.5);
 	}
 }

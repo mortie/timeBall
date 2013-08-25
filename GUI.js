@@ -31,7 +31,7 @@ var GUI = {
 		
 		draw.ctx.fillText("Controls:", draw.canvas.width/2, (draw.canvas.height/2) + 20);
 		draw.ctx.fillText("A and D: left and right", draw.canvas.width/2, (draw.canvas.height/2) + 60);
-		draw.ctx.fillText("S: stop bouncing", draw.canvas.width/2, (draw.canvas.height/2) + 100);
+		draw.ctx.fillText("W: jump", draw.canvas.width/2, (draw.canvas.height/2) + 100);
 		draw.ctx.fillText("SPACE: rewind time", draw.canvas.width/2, (draw.canvas.height/2) + 140);
 		draw.ctx.fillText("M: toggle music", draw.canvas.width/2, (draw.canvas.height/2) + 180);
 		
