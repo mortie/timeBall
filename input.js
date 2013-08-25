@@ -28,17 +28,6 @@ onkeydown = function(e) {
 	input.keyPressed[e.keyCode] = true;
 	
     e.preventDefault();
-	
-	//pause handler
-	if (input.keyPressed[properties.key.pause]) {
-		if (input.paused) {
-			gameLoop = setInterval(main, 1000/properties.gameSpeed);
-			input.paused = false;
-		} else {
-			clearInterval(gameLoop);
-			input.paused = true;
-		}
-	}
 }
 
 onkeyup = function(e) {

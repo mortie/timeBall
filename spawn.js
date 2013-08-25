@@ -1,30 +1,42 @@
 var spawn = {
-	'worldRect': function(x, y, width, height, type) {
-		var cObj = {
-			'point': [],
+	'worldRect': function(x, y, width, height) {
+		statState.world[this.getNewIndex(statState.world)] = {
+			'point': this.getPointSquare(x, y, width, height),
 			'x': x,
 			'y': y,
-			'type': type,
+			'type': 0,
+		};
+	},
+	
+	'lethalRect': function(x, y, width, height) {
+		statState.worldLethal[this.getNewIndex(statState.worldLethal)] = {
+			'point': this.getPointSquare(x, y, width, height),
+			'x': x,
+			'y': y,
+			'type': 1,
 		}
-		
-		cObj.point[0] = {
+ 
+	},
+	
+	'getPointSquare': function(x, y, width, height) {
+		var point = [];
+		point[0] = {
 			'x': x,
 			'y': y,
 		}
-		cObj.point[1] = {
+		point[1] = {
 			'x': x+width,
 			'y': y,
 		}
-		cObj.point[2] = {
+		point[2] = {
 			'x': x+width,
 			'y': y+height,
 		}
-		cObj.point[3] = {
+		point[3] = {
 			'x': x,
 			'y': y+height,
 		}
-		
-		statState.world[this.getNewIndex(statState.world)] = cObj;
+		return point;
 	},
 	
 	'getNewIndex': function(arr) {

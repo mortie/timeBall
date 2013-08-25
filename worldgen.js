@@ -11,6 +11,35 @@ var worldgen = {
 	},
 	
 	'generate': function() {
+		this.generateWorld();
+		if (this.random(0, properties.worldgen.lethalChance) == 0) {
+			this.generateLethalWorld();
+		}
+	},
+	
+	'generateLethalWorld': function() {
+		var minWidth = properties.worldgen.lethalWidthMin;
+		var maxWidth = properties.worldgen.lethalWidthMax;
+		
+		for (var i=0; i<=this.random(minWidth, maxWidth); ++i) {			
+			var cX = this.lastGenX + this.lastGenWidth;
+			var cY = this.lastGenY;
+			var cWidth = properties.worldgen.width
+			var cHeight = this.lastGenHeight;
+			
+			this.lastGenX = cX;
+			this.lastGenY = cY;
+			this.lastGenHeight = cHeight;
+			this.lastGenWidth = cWidth;
+			
+			var lethalHeight = properties.worldgen.lethalHeight;
+			
+			spawn.worldRect(cX, cY, cWidth, cHeight + lethalHeight);
+			spawn.lethalRect(cX, cY+cHeight+(lethalHeight/2), cWidth, lethalHeight);
+		}
+	},
+	
+	'generateWorld': function() {
 		var maxOffset = properties.worldgen.maxOffsetHeight;
 		
 		var cX = this.lastGenX + this.lastGenWidth;
@@ -23,17 +52,14 @@ var worldgen = {
 		} else if (cHeight > properties.worldgen.maxHeight) {
 			cHeight = properties.worldgen.maxHeight;
 		}
+				
+		this.lastGenX = cX;
+		this.lastGenY = cY;
+		this.lastGenHeight = cHeight;
+		this.lastGenWidth = cWidth;
 		
-		this.makeWorld(cX, cY, cWidth, cHeight);
-	},
-	
-	'makeWorld': function(x, y, width, height) {
-		this.lastGenX = x;
-		this.lastGenY = y;
-		this.lastGenHeight = height;
-		this.lastGenWidth = width;
-		
-		spawn.worldRect(x, y, width, height, 0);
+		spawn.worldRect(cX, cY, cWidth, cHeight);
+		spawn.lethalRect(0, 999, 0, 0);
 	},
 	
 	'random': function(min, max) {

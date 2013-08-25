@@ -46,10 +46,12 @@ var physics = {
 			var blockIndex = this.getBlockIndex();
 			var playerPos = state.player.pos
 			var worldBlock = statState.world[blockIndex];
+			var worldLethalBlock = statState.worldLethal[blockIndex];
 			var pRadius = properties.player.radius;
 			
-			//in cieling
 			if (worldBlock != undefined) {
+				
+				//in cieling
 				if (worldBlock.point[0].y > playerPos.y) {
 					playerPos.y = worldBlock.point[0].y;
 				}
@@ -63,6 +65,15 @@ var physics = {
 					state.player.isOnGround = false;
 				}
 			}
+			if (worldLethalBlock != undefined) {
+				
+				//in lethal
+				if (worldLethalBlock.point[0].y + pRadius < playerPos.y) {
+					statState.dead = true;
+				}
+			}
+			
+			
 		}
 		
 		//speed limit

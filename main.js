@@ -1,10 +1,12 @@
 var main = function() {
-	worldgen.main();
-	rewind.main();
-	draw.main();
+	if (statState.shouldGame) {
+		worldgen.main();
+		rewind.main();
+		draw.main();
 
-	if (rewind.mainShouldPhysics) {
-		physics.main();
+		if (statState.shouldPhysics) {
+			physics.main();
+		}
 	}
 	GUI.main();
 	

@@ -10,7 +10,7 @@ function init() {
 		this.currentTime = 0;
 		this.play();
 	}, false);
-	statState.backgroundMusic.play();
+	//statState.backgroundMusic.play();
 }
 
 window.onLoad = init();

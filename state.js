@@ -17,7 +17,12 @@ var state = {
 
 var statState = {
 	'world': [],
+	'worldLethal': [],
 	'backgroundMusic': null,
+	'shouldPhysics': true,
+	'shouldGame': true,
+	'paused': false,
+	'dead': false,
 }
 
 var oldState = [];

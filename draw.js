@@ -7,6 +7,7 @@ var draw = {
 		draw.ctx.canvas.height = window.innerHeight;
 		
 		this.world();
+		this.worldLethal();
 		this.player();
 	},
 	
@@ -27,27 +28,44 @@ var draw = {
 	'world': function() {
 		for (var i=statState.world.length-1; i>=0; --i) {
 			var cObj = statState.world[i]
+			this.ctx.beginPath();
+			this.ctx.moveTo(cObj.point[0].x + state.xmod,
+							cObj.point[0].y + state.ymod);
+		
+			this.ctx.lineTo(cObj.point[1].x+1 + state.xmod,
+							cObj.point[1].y + state.ymod);
 			
-			switch (cObj.type) {
-				case 0:
-					this.ctx.beginPath();
-					this.ctx.moveTo(cObj.point[0].x + state.xmod,
-									cObj.point[0].y + state.ymod);
-				
-					this.ctx.lineTo(cObj.point[1].x+1 + state.xmod,
-									cObj.point[1].y + state.ymod);
-					
-					this.ctx.lineTo(cObj.point[2].x+1 + state.xmod,
-									cObj.point[2].y + state.ymod);
-					
-					this.ctx.lineTo(cObj.point[3].x + state.xmod,
-									cObj.point[3].y + state.ymod);
-					
-					this.ctx.fillStyle = "#AAAAAA";
-					this.ctx.fill();
-					this.ctx.closePath();
-					break;
-			}
+			this.ctx.lineTo(cObj.point[2].x+1 + state.xmod,
+							cObj.point[2].y + state.ymod);
+			
+			this.ctx.lineTo(cObj.point[3].x + state.xmod,
+							cObj.point[3].y + state.ymod);
+			
+			this.ctx.fillStyle = "#AAAAAA";
+			this.ctx.fill();
+			this.ctx.closePath();
+		}
+	},
+
+	'worldLethal': function() {
+		for (var i=statState.worldLethal.length-1; i>=0; --i) {
+			var cObj = statState.worldLethal[i]
+			this.ctx.beginPath();
+			this.ctx.moveTo(cObj.point[0].x + state.xmod,
+							cObj.point[0].y + state.ymod);
+			
+			this.ctx.lineTo(cObj.point[1].x+1 + state.xmod,
+							cObj.point[1].y + state.ymod);
+			
+			this.ctx.lineTo(cObj.point[2].x+1 + state.xmod,
+							cObj.point[2].y + state.ymod);
+			
+			this.ctx.lineTo(cObj.point[3].x + state.xmod,
+							cObj.point[3].y + state.ymod);
+			
+			this.ctx.fillStyle = "#FFAAAA";
+			this.ctx.fill();
+			this.ctx.closePath();
 		}
 	}
 }
