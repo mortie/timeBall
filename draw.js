@@ -41,7 +41,7 @@ var draw = {
 			this.ctx.lineTo(cObj.point[3].x + state.xmod,
 							cObj.point[3].y + state.ymod);
 			
-			this.ctx.fillStyle = "#AAAAAA";
+			this.ctx.fillStyle = "#9A9A9A";
 			this.ctx.fill();
 			this.ctx.closePath();
 		}

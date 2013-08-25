@@ -21,7 +21,7 @@ var worldgen = {
 		var minWidth = properties.worldgen.lethalWidthMin;
 		var maxWidth = properties.worldgen.lethalWidthMax;
 		
-		for (var i=0; i<=this.random(minWidth, maxWidth); ++i) {			
+		for (var i=0; i<=this.random(minWidth, maxWidth)+5; ++i) {
 			var cX = this.lastGenX + this.lastGenWidth;
 			var cY = this.lastGenY;
 			var cWidth = properties.worldgen.width
@@ -34,8 +34,13 @@ var worldgen = {
 			
 			var lethalHeight = properties.worldgen.lethalHeight;
 			
-			spawn.worldRect(cX, cY, cWidth, cHeight + lethalHeight);
-			spawn.lethalRect(cX, cY+cHeight+(lethalHeight/2.6), cWidth, lethalHeight);
+			if (i < 4) {
+				spawn.lethalRect(0, 999, 0, 0);
+				spawn.worldRect(cX, cY, cWidth, cHeight);
+			} else {
+				spawn.lethalRect(cX, cY+cHeight+(lethalHeight/2.6), cWidth, lethalHeight);
+				spawn.worldRect(cX, cY, cWidth, cHeight + lethalHeight);
+			}
 		}
 	},
 	

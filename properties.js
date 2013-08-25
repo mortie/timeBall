@@ -21,7 +21,7 @@ var properties = {
 		'acceleration': 0.4,
 		'jumpForce': 20,
 		'radius': 10,
-		'maxSpeed': 50,
+		'maxSpeed': 40,
 	},
 	
 	'gravity': 1,
@@ -33,7 +33,7 @@ var properties = {
 		
 		'width': 100,
 		
-		'lethalWidthMax': 20,
+		'lethalWidthMax': 15,
 		'lethalWidthMin': 5,
 		'lethalHeight': 200,
 		
