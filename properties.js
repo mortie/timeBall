@@ -12,6 +12,7 @@ var properties = {
 		'right': 68,
 		'rewind': 32,
 		'pause': 27,
+		'restart': 27,
 	},
 	
 	'player': {

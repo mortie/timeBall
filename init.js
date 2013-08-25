@@ -11,6 +11,7 @@ function init() {
 		this.play();
 	}, false);
 	//statState.backgroundMusic.play();
+	
 }
 
 window.onLoad = init();

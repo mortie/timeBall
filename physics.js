@@ -12,7 +12,7 @@ var physics = {
 		
 		//controls
 		{
-			if (input.keyPressed[propKey.up] && state.player.isOnGround) {
+			if (!input.keyPressed[propKey.down] && state.player.isOnGround) {
 				state.player.vel.y -= properties.player.jumpForce;
 				state.player.pos.y -= 1;
 				state.player.isOnGround = false;
@@ -42,12 +42,17 @@ var physics = {
 		}
 		
 		//collision
-		{
+		{	
 			var blockIndex = this.getBlockIndex();
 			var playerPos = state.player.pos
 			var worldBlock = statState.world[blockIndex];
 			var worldLethalBlock = statState.worldLethal[blockIndex];
 			var pRadius = properties.player.radius;
+			
+			//before start
+			if (state.player.pos.x-pRadius < -99){
+				state.player.pos.x = -99+pRadius;
+			}
 			
 			if (worldBlock != undefined) {
 				
@@ -58,7 +63,7 @@ var physics = {
 				
 				//in floor
 				if (worldBlock.point[3].y - pRadius < playerPos.y) {
-					state.player.pos.y = worldBlock.point[3].y + 1 - pRadius;
+					state.player.pos.y = worldBlock.point[3].y - pRadius;
 					state.player.isOnGround = true;
 					state.player.vel.y = 0;
 				} else {
@@ -69,10 +74,10 @@ var physics = {
 				
 				//in lethal
 				if (worldLethalBlock.point[0].y + pRadius < playerPos.y) {
+					statState.shouldGame = false;
 					statState.dead = true;
 				}
 			}
-			
 			
 		}
 		

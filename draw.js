@@ -7,8 +7,8 @@ var draw = {
 		draw.ctx.canvas.height = window.innerHeight;
 		
 		this.world();
-		this.worldLethal();
 		this.player();
+		this.worldLethal();
 	},
 	
 	'player': function() {
@@ -63,7 +63,7 @@ var draw = {
 			this.ctx.lineTo(cObj.point[3].x + state.xmod,
 							cObj.point[3].y + state.ymod);
 			
-			this.ctx.fillStyle = "#FFAAAA";
+			this.ctx.fillStyle = "#BB5757";
 			this.ctx.fill();
 			this.ctx.closePath();
 		}
