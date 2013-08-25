@@ -22,4 +22,10 @@ var properties = {
 	},
 	
 	'gravity': 1,
+	
+	'worldgen': {
+		'minHeight': 200,
+		'maxHeight': 400,
+		'maxOffsetHeight': 50,
+	},
 }

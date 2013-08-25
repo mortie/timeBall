@@ -49,9 +49,9 @@ var physics = {
 			'x': state.player.pos.x - pRadius,
 			'y': state.player.pos.y + pRadius,
 		}
-		for (var cIndex in state.world) {
-			if (this.pointToRectCollision(playerPoint, state.world[cIndex].point)) {
-				state.player.collidesWith = state.world[cIndex];
+		for (var cIndex in statState.world) {
+			if (this.pointToRectCollision(playerPoint, statState.world[cIndex].point)) {
+				state.player.collidesWith = statState.world[cIndex];
 				return false;
 			}
 		}
@@ -72,9 +72,9 @@ var physics = {
 			'x': state.player.pos.x,
 			'y': state.player.pos.y,
 		}
-		for (var cIndex in state.world) {
-			if (this.pointToRectCollision(playerPoint, state.world[cIndex].point)) {
-				state.player.collidesWith = state.world[cIndex];
+		for (var cIndex in statState.world) {
+			if (this.pointToRectCollision(playerPoint, statState.world[cIndex].point)) {
+				state.player.collidesWith = statState.world[cIndex];
 				return false;
 			}
 		}

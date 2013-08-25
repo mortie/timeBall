@@ -25,7 +25,7 @@ var spawn = {
 			'y': y+height,
 		}
 		
-		state.world[this.getNewIndex(state.world)] = cObj;
+		statState.world[this.getNewIndex(statState.world)] = cObj;
 	},
 	
 	'getNewIndex': function(arr) {

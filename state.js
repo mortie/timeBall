@@ -1,7 +1,4 @@
 var state = {
-	'gameLoop': null,
-	'saveLoop': null,
-	
 	'player': {
 		'pos': {
 			'x': 0,
@@ -14,11 +11,13 @@ var state = {
 		'isOnGround': false,
 		'collidesWith': null,
 	},
-	
-	'world': [],
-	
+		
 	'xmod': 0,
 	'ymod': 0,
+}
+
+var statState = {
+	'world': [],
 }
 
 var oldState = [];

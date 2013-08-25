@@ -25,8 +25,8 @@ var draw = {
 	},
 	
 	'world': function() {
-		for (var i=state.world.length-1; i>=0; --i) {
-			var cObj = state.world[i]
+		for (var i=statState.world.length-1; i>=0; --i) {
+			var cObj = statState.world[i]
 			
 			switch (cObj.type) {
 				case 0:
