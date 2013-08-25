@@ -1,11 +1,11 @@
 var main = function() {
-	
-	draw.main();
+	worldgen.main();
 	rewind.main();
+	draw.main();
+
 	if (rewind.mainShouldPhysics) {
 		physics.main();
 	}
-	worldgen.main();
 	GUI.main();
 	
 	input.main(); //should always be last

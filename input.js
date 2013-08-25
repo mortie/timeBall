@@ -31,7 +31,6 @@ onkeydown = function(e) {
 	
 	//pause handler
 	if (input.keyPressed[properties.key.pause]) {
-		console.log("Pausing: "+input.paused);
 		if (input.paused) {
 			gameLoop = setInterval(main, 1000/properties.gameSpeed);
 			input.paused = false;

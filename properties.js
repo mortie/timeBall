@@ -16,16 +16,21 @@ var properties = {
 	
 	'player': {
 		'slowdown': 0.9,
-		'acceleration': 1,
+		'acceleration': 0.3,
 		'jumpForce': 20,
 		'radius': 10,
+		'maxSpeed': 50,
 	},
 	
 	'gravity': 1,
 	
 	'worldgen': {
-		'minHeight': 200,
-		'maxHeight': 400,
-		'maxOffsetHeight': 50,
+		'minHeight': 400,
+		'maxHeight': 700,
+		'maxOffsetHeight': 10,
+		
+		'width': 100,
+		
+		'worldLength': 500,
 	},
 }

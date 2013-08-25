@@ -5,108 +5,84 @@ var physics = {
 	},
 	
 	'player': function() {
-		var player = state.player;
-		player.isOnGround = this.getOnGround();
-		
 		var propKey = properties.key;
+		
+		state.player.pos.x += state.player.vel.x;
+		state.player.pos.y += state.player.vel.y;
 		
 		//controls
 		{
-			if (input.keyPressed[propKey.up] && player.isOnGround) {
-				player.vel.y -= properties.player.jumpForce;
-				player.isOnGround = false;
+			if (input.keyPressed[propKey.up] && state.player.isOnGround) {
+				state.player.vel.y -= properties.player.jumpForce;
+				state.player.pos.y -= 1;
+				state.player.isOnGround = false;
 			}
 			if (input.keyPressed[propKey.left]) {
-				player.vel.x -= (properties.player.acceleration*2);
+				state.player.vel.x -= (properties.player.acceleration*2);
 			}
 			if (input.keyPressed[propKey.right]) {
-				player.vel.x += (properties.player.acceleration*2);
+				state.player.vel.x += (properties.player.acceleration*2);
 			}
+		}
+		
+		//slow down
+		{
 			if (state.player.vel.x > 0) {
-				player.vel.x -= properties.player.acceleration;
+				state.player.vel.x -= properties.player.acceleration;
 			} else if (state.player.vel.x < 0) {
-				player.vel.x += properties.player.acceleration;
+				state.player.vel.x += properties.player.acceleration;
 			}
 		}
 		
 		//gravity
 		{
-			if (player.isOnGround) {
-				player.vel.y = 0;
-				player.pos.y = state.player.collidesWith.point[2].y;
-			} else {
-				player.vel.y += properties.gravity;
+			if (!state.player.isOnGround) {
+				state.player.vel.y += properties.gravity;
 			}
 		}
 		
-		player.pos.x += state.player.vel.x;
-		player.pos.y += state.player.vel.y;
-	},
-	
-	'getIfWallLeft': function() {
-		var pRadius = properties.player.radius;
-		var playerPoint = {
-			'x': state.player.pos.x - pRadius,
-			'y': state.player.pos.y + pRadius,
-		}
-		for (var cIndex in statState.world) {
-			if (this.pointToRectCollision(playerPoint, statState.world[cIndex].point)) {
-				state.player.collidesWith = statState.world[cIndex];
-				return false;
+		//collision
+		{
+			var blockIndex = this.getBlockIndex();
+			var playerPos = state.player.pos
+			var worldBlock = statState.world[blockIndex];
+			var pRadius = properties.player.radius;
+			
+			//in cieling
+			if (worldBlock != undefined) {
+				if (worldBlock.point[0].y > playerPos.y) {
+					playerPos.y = worldBlock.point[0].y;
+				}
+				
+				//in floor
+				if (worldBlock.point[3].y - pRadius < playerPos.y) {
+					state.player.pos.y = worldBlock.point[3].y + 1 - pRadius;
+					state.player.isOnGround = true;
+					state.player.vel.y = 0;
+				} else {
+					state.player.isOnGround = false;
+				}
 			}
 		}
-		return true;
-	},
-	
-	'getIfWallRight': function() {
-		var pRadius = properties.player.radius;
-		var playerPoint = {
-			'x': state.player.pos.x + pRadius,
-			'y': state.player.pos.y + pRadius,
-		}
-	},
-	
-	'getOnGround': function() {
-		var pRadius = properties.player.radius;
-		var playerPoint = {
-			'x': state.player.pos.x,
-			'y': state.player.pos.y,
-		}
-		for (var cIndex in statState.world) {
-			if (this.pointToRectCollision(playerPoint, statState.world[cIndex].point)) {
-				state.player.collidesWith = statState.world[cIndex];
-				return false;
+		
+		//speed limit
+		{
+			if (state.player.vel.x > properties.player.maxSpeed)
+				state.player.vel.x = properties.player.maxSpeed;
+			else if (state.player.vel.x < -properties.player.maxSpeed) {
+				state.player.vel.x = -properties.player.maxSpeed;
 			}
 		}
-		return true;
 	},
 	
-	'pointToRectCollision': function(point, arrPoint) {
-		if (point.x > arrPoint[0].x &&
-			point.x < arrPoint[1].x &&
-			point.y > arrPoint[0].y &&
-			point.y < arrPoint[2].y) {
-				return true;
-		} else {
-			return false;
-		}
+	'getBlockIndex': function() {
+		var index = (state.player.pos.x/properties.worldgen.width);
+		return Math.ceil(index);
 	},
 	
 	'misc': function() {
 		
-		//restoring
-		if (input.onKeyDown[properties.key.restore]) {
-			if (properties.restoreIndex > oldState.length){
-				if (oldState[oldState.length-1] != undefined) {
-					state = oldState[oldState.length-1];
-				}
-			} else {
-				state = oldState[properties.restoreIndex];
-			}
-			oldState = [];
-		}
-		
-		//shifting camera
+		//camera
 		state.xmod = (-state.player.pos.x)+(draw.canvas.width/2);
 		state.ymod = (-state.player.pos.y)+(draw.canvas.height/2);
 	}

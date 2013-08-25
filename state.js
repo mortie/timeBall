@@ -9,7 +9,6 @@ var state = {
 			'y': 0,
 		},
 		'isOnGround': false,
-		'collidesWith': null,
 	},
 		
 	'xmod': 0,
@@ -18,6 +17,7 @@ var state = {
 
 var statState = {
 	'world': [],
+	'backgroundMusic': null,
 }
 
 var oldState = [];

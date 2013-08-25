@@ -1,7 +1,6 @@
 var spawn = {
 	'worldRect': function(x, y, width, height, type) {
 		var cObj = {
-			'dead': false,
 			'point': [],
 			'x': x,
 			'y': y,
@@ -29,10 +28,6 @@ var spawn = {
 	},
 	
 	'getNewIndex': function(arr) {
-		for (var i=0; i<=arr.length; ++i) {
-			if (arr.dead != true) {
-				return i;
-			}
-		}
+		return arr.length;;
 	},
 }

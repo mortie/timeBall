@@ -13,6 +13,7 @@
 		5B6D5E8817C93842001517E2 /* rewind.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = rewind.js; sourceTree = "<group>"; };
 		5BA0A81217C95546004D393F /* GUI.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = GUI.js; sourceTree = "<group>"; };
 		5BA0A81417C9FCC4004D393F /* worldgen.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = worldgen.js; sourceTree = "<group>"; };
+		5BA0A81617CA0EBA004D393F /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		5BAE29D717C8BAE100470A73 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		5BAE29D817C8BB1B00470A73 /* init.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = init.js; sourceTree = "<group>"; };
 		5BAE29D917C8BC1200470A73 /* state.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = state.js; sourceTree = "<group>"; };
@@ -23,6 +24,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		5BA0A81517CA0EBA004D393F /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5BA0A81617CA0EBA004D393F /* background.mp3 */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		5BAE29D017C8BAD200470A73 = {
 			isa = PBXGroup;
 			children = (
@@ -39,6 +48,7 @@
 				5B6D5E8817C93842001517E2 /* rewind.js */,
 				5BAE29E017C8BF1100470A73 /* properties.js */,
 				5BAE29DD17C8BD2B00470A73 /* jquery.js */,
+				5BA0A81517CA0EBA004D393F /* resources */,
 			);
 			sourceTree = "<group>";
 		};

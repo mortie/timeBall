@@ -32,11 +32,17 @@ var draw = {
 				case 0:
 					this.ctx.beginPath();
 					this.ctx.moveTo(cObj.point[0].x + state.xmod,
-									 cObj.point[0].y + state.ymod);
-					for (var j=1; j<=3; ++j){
-						this.ctx.lineTo(cObj.point[j].x + state.xmod,
-										 cObj.point[j].y + state.ymod);
-					}
+									cObj.point[0].y + state.ymod);
+				
+					this.ctx.lineTo(cObj.point[1].x+1 + state.xmod,
+									cObj.point[1].y + state.ymod);
+					
+					this.ctx.lineTo(cObj.point[2].x+1 + state.xmod,
+									cObj.point[2].y + state.ymod);
+					
+					this.ctx.lineTo(cObj.point[3].x + state.xmod,
+									cObj.point[3].y + state.ymod);
+					
 					this.ctx.fillStyle = "#AAAAAA";
 					this.ctx.fill();
 					this.ctx.closePath();
